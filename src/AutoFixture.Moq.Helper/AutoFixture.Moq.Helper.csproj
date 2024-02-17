@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.20.70" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture.Helper\AutoFixture.Helper.csproj" />
+  </ItemGroup>
+
+    <Import Project="..\Directory.Build.props" Condition="Exists('..\..\Directory.Build.props')" />
+</Project>
