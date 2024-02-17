@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture.Helper\AutoFixture.Helper.csproj" />
+  </ItemGroup>
+    <Import Project="..\Directory.Build.props" Condition="Exists('..\..\Directory.Build.props')" />
+</Project>
