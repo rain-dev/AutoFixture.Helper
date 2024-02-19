@@ -1,4 +1,4 @@
-name: telsbot-build-test
+name: auto-fixture-helper build
 
 on:
   pull_request:
