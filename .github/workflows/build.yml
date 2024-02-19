@@ -7,10 +7,7 @@ on:
 
 jobs:
   triage: 
-    runs-on: ${{ matrix.os }}
-      strategy:
-        matrix:
-          os: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
     - name: Setup .NET 8
