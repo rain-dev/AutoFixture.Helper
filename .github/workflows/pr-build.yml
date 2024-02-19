@@ -1,12 +1,13 @@
+name: pr-build
+
 on:
   pull_request:
-    types:
-      - opened
+    types: [opened]
 
 
 jobs:
   build-project:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/commons/build.yml
     with:
       project-path: ./src/AutoFixture.Helper.sln
     name: Build
