@@ -1,0 +1,51 @@
+name: telsbot-build-test
+
+on:
+  pull_request:
+    branches: [ beta ]
+
+jobs:
+  # test:
+  #   name: test AutoFixture.Helper
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v1
+  #     with:
+  #       dotnet-version: 8.0.x
+  #   - name: Restore dependencies
+  #     run: dotnet restore ./src/AutoFixture.Helper.sln
+  #   - name: Build
+  #     run: dotnet build --no-restore ./src/AutoFixture.Helper.sln
+  #   - name: Test
+  #     run: dotnet test --no-build --verbosity normal ./src/AutoFixture.Helper.Tests/AutoFixture.Helper.Tests.csproj
+  build:
+    name: build AutoFixture.Helper on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps: 
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+    - name: restore dependencies
+      run: dotnet restore ./src/AutoFixture.Helper.sln
+    - name: Build artifacts
+      run: |
+        dotnet pack ./src/AutoFixture.Helper.sln -c Release -o ./dist/${{ matrix.os }}/AutoFixture.Helper --version-suffix beta
+    - name: zip release AutoFixture.Helper
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        filename: AutoFixture.Helper-${{ matrix.os }}.zip
+        directory: ./dist/${{ matrix.os }}/AutoFixture.Helper
+    - uses: actions/upload-artifact@v4.3.1
+      with:
+        path: AutoFixture.Helper-${{ matrix.os }}.zip
+    
+    
