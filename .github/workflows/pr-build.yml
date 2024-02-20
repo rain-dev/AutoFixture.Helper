@@ -2,8 +2,6 @@ name: pr-build
 
 on:
   pull_request:
-    types:
-      - opened
     branches: [beta, main, nightly]
 
 jobs:
