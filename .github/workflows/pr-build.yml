@@ -17,8 +17,8 @@ jobs:
       project-path: ./src/AutoFixture.Helper.sln
       dotnet-version: ${{ matrix.dotnet-version }}
       os: ${{ matrix.os }}
-    name: Build
   dotnet-publish:
+    needs: dotnet-build
     strategy:
       matrix:
         dotnet-version: [ '8.0.x', '6.0.x', ]
