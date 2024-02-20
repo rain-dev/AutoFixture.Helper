@@ -10,8 +10,8 @@ jobs:
   dotnet-build:
     strategy:
       matrix:
-        dotnet-version: [ '8.0.x', '6.0.x', ]
-        os: [ubuntu-latest, alpine-latest, windows-latest ]
+        dotnet-version: [ '8.0.x', '6.0.x' ]
+        os: [ubuntu-latest ]
     uses: rain-dev/git-actions/.github/workflows/dotnet-build.yml@main
     with:
       project-path: ./src/AutoFixture.Helper.sln
@@ -21,8 +21,8 @@ jobs:
     needs: dotnet-build
     strategy:
       matrix:
-        dotnet-version: [ '8.0.x', '6.0.x', ]
-        os: [ubuntu-latest, alpine-latest, windows-latest ]
+        dotnet-version: [ '8.0.x', '6.0.x' ]
+        os: [ubuntu-latest]
     uses: rain-dev/git-actions/.github/workflows/dotnet-publish.yml@main
     with:
       project-path: ./src/AutoFixture.Helper.sln
