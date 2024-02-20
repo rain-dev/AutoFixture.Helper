@@ -24,7 +24,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-       <None Include="..\readme.md" Condition="Exists('..\..\readme.md')">
+       <None Include="..\..\README.md" Condition="Exists('..\..\README.md')">
            <Pack>True</Pack>
            <PackagePath></PackagePath>
        </None>
