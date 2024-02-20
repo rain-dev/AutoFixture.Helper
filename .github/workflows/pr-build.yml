@@ -29,6 +29,7 @@ jobs:
       dotnet-version: ${{ matrix.dotnet-version }}
       os: ${{ matrix.os }}
       package-name: 'AutoFixture.Helper'
+      beta: ${{ github.base_ref == 'beta' }}
     
     
     
