@@ -15,18 +15,18 @@ jobs:
       project-path: ./src/AutoFixture.Helper.sln
       dotnet-version: '8.0.x'
       os: ${{ matrix.os }}
-  dotnet-publish:
-    needs: dotnet-build
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    uses: rain-dev/git-actions/.github/workflows/dotnet-publish.yml@main
-    with:
-      project-path: ./src/AutoFixture.Helper.sln
-      dotnet-version: '8.0.x'
-      os: ${{ matrix.os }}
-      package-name: 'AutoFixture.Helper'
-      beta: ${{ github.base_ref == 'beta' }}
+  # dotnet-publish:
+  #   needs: dotnet-build
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest]
+  #   uses: rain-dev/git-actions/.github/workflows/dotnet-publish.yml@main
+  #   with:
+  #     project-path: ./src/AutoFixture.Helper.sln
+  #     dotnet-version: '8.0.x'
+  #     os: ${{ matrix.os }}
+  #     package-name: 'AutoFixture.Helper'
+  #     beta: ${{ github.base_ref == 'beta' }}
     
     
     
