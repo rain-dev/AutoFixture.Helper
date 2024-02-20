@@ -7,25 +7,28 @@ on:
     branches: [beta, main, nightly]
 
 jobs:
-  build-publish:
-    runs-on: ${{ matrix.os }}
+  dotnet-build:
     strategy:
       matrix:
         dotnet-version: [ '8.0.x', '6.0.x', ]
         os: [ubuntu-latest, alpine-latest, windows-latest ]
-    steps:
-    - uses: rain-dev/git-actions/.github/workflows/dotnet-build.yml@main
-      with:
-        project-path: ./src/AutoFixture.Helper.sln
-        dotnet-version: ${{ matrix.dotnet-version }}
-        os: ${{ matrix.os }}
-      name: Build
-    - uses: rain-dev/git-actions/.github/workflows/dotnet-publish.yml@main
-      with:
-        project-path: ./src/AutoFixture.Helper.sln
-        dotnet-version: ${{ matrix.dotnet-version }}
-        os: ${{ matrix.os }}
-      name: Publish
+    uses: rain-dev/git-actions/.github/workflows/dotnet-build.yml@main
+    with:
+      project-path: ./src/AutoFixture.Helper.sln
+      dotnet-version: ${{ matrix.dotnet-version }}
+      os: ${{ matrix.os }}
+    name: Build
+  dotnet-publish:
+    strategy:
+      matrix:
+        dotnet-version: [ '8.0.x', '6.0.x', ]
+        os: [ubuntu-latest, alpine-latest, windows-latest ]
+    uses: rain-dev/git-actions/.github/workflows/dotnet-publish.yml@main
+    with:
+      project-path: ./src/AutoFixture.Helper.sln
+      dotnet-version: ${{ matrix.dotnet-version }}
+      os: ${{ matrix.os }}
+    
     
     
     
