@@ -12,7 +12,7 @@
         <InvariantGlobalization>true</InvariantGlobalization>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryType>Git</RepositoryType>
         <RepositoryUrl>https://github.com/rain-dev/AutoFixture.Helper</RepositoryUrl>
         <PackageProjectUrl>https://github.com/rain-dev/AutoFixture.Helper</PackageProjectUrl>
