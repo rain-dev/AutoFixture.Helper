@@ -28,6 +28,7 @@ jobs:
       project-path: ./src/AutoFixture.Helper.sln
       dotnet-version: ${{ matrix.dotnet-version }}
       os: ${{ matrix.os }}
+      package-name: 'AutoFixture.Helper'
     
     
     
