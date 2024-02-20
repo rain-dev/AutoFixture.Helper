@@ -2,7 +2,9 @@ name: pr-build
 
 on:
   pull_request:
-    branches: ['*']
+    types:
+      - opened
+    branches: [beta, main, nightly]
 
 jobs:
   build-publish:
